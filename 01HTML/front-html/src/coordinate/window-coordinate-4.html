@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- 
+4탄에서는 html과 javascript 섞어쓰기 
+- javascript로 html 태그 안에 div태그에 접근할 수 있다.
+- 태그 이름으로 접근하기 (사용법: 태그이름)
+- ID로 접근하기 (사용법: #)
+- 클래스 선택자로 접근하기 (사용법: .->special)
+- 위 세가지 방법을 다 지원하는 함수(querySelector())가 있다.
+- 이 함수는 document 내장객체가 선언하고 있다.
+- 내장 객체이므로 따로 생성하지 않고 바로 사용이 가능함.
+- mbn이 표준 API
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* CSS주석이다 주석은 실행하지 않는다 */
+    /* 여기에는 CSS코드를 작성합니다 */
+    body {/* body라는 엘리먼트 선택자이다. */
+      background-color: rgb(24, 18, 18);
+    }
+    div {
+      width: 250px;
+      height: 250px;
+      background-color: darkslategray;
+      margin-bottom: 4px;
+      border-radius: 40px;
+    }
+    .special {  
+      background-color: rgb(131, 139, 116);
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="special" id="idSpecial"></div>
+  <div></div>
+  <div></div>
+
+<script type="text/javascript">
+// 자바스크립트 주석입니다. - 브라우저가 실행하지 않음.
+// 어느 위치에 코딩하는지 말할 수 있다. - 기초
+  let special = document.querySelector("#idSpecial");
+  console.log(special);//변수 호출 - null or undefined
+  //null이면 이벤트 처리가 불가하다. 
+</script>
+</body>
+</html>
