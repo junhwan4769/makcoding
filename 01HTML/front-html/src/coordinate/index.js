@@ -1,18 +1,31 @@
-let vertical = document.querySelector(".vertical");
-let horizontal = document.querySelector(".horizontal");
-let target = document.querySelector(".target");
-let label = document.querySelector(".label");
-console.log(target); // 이제 null이 아니어야 합니다 (요소가 존재하면 HTMLImageElement 출력)
+let vertical = document.querySelector(".vertical"); //수직선
+let horizontal = document.querySelector(".horizontal"); //수평선
+let target = document.querySelector(".target"); //이미지
+let label = document.querySelector(".label"); //좌표값을 출력할 태그 가리킴 
 
-document.addEventListener("mousemove", function(event){ //익명함수- 콜백함수
-  console.log('mousemove');
-  let x = event.clientX
-  let y = event.clientY
-  console.log(`x = ${x} y = ${y}`);
-  let px = event.pageX
-  let py = event.pageY
-  console.log(`px = ${px} py = ${py}`);
-});
+// load 이벤트는 리소스와 그것에 의존하는 리소스들이 로딩이 완료되면 발동합니다. 
+// - > 인터셉트해서 무언가 처리가 가능하다 
+window.addEventListener('load', function(){ //익명함수- 콜백함수
+  let targetRect = target.getBoundingClientRect()
+  let targetWidth = targetRect.width / 2
+  let targetHeight = targetRect.height / 2
+  document.addEventListener('mousemove', function(event){
+    let x = event.clientX
+    let y = event.clientY
+    console.log(`${x} ${y}`);
+    //수직선 좌표값 이동하기 
+    vertical.style.left = `${x}px`
+    //수평선 좌표값 이동하기
+    horizontal.style.top = `${y}px`
+    //아래는 타겟이미지 좌표값 이동하기 
+    target.style.left = `${x}px`
+    target.style.top = `${y}px`
+    //좌표 숫자
+    label.style.left = `${x}px`
+    label.style.top = `${y}px`
+    label.innerHTML = `${x}px, ${y}px` 
+  }) //////////////// end of onMousemove
+}) //////////////// end of onload
 
 /* 
 // pageX 와 clientX의 차이점은? 
