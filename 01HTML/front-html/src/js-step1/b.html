@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>load Event Handler</title>
+</head>
+<body>
+  <!--
+  html 코드도 위에서 아래로 순서대로 읽어서 처리됩니다. 
+  선언이 먼저이고 사용이 나중입니다. 
+  html(태그)를 자바스크립트로 접근(querySelector("문자열"))이 가능합니다.
+  자바스크립트는 DOM Tree가 만들어져야 접근이 가능합니다. 
+  TypeError가 발생했을때 프로그램이 중단될 수 있습니다.  
+  -->
+  <script type="text/javascript">
+    const groot = document.querySelector("#root")
+    //선언만 했을때는 에러가 발생하지 않고 사용할 때 중단되거나 TypeError가 발생함 
+    //console.log(`global variable:${groot}`); //null 일까? 아니면 브라우저가 div를 찾아낼까?
+    /*************************************************************
+     * @param1 :type -> load(예:click)
+     * @param2 :콜백함수 -> 파라미터를 가질 수 있다. -> 이벤트가 감지되면 호출된다.
+     * **********************************************************/
+
+    window.addEventListener('load', function(event){
+      //console.log(event.target);
+      const root = document.querySelector("#root")
+      console.log(`local variable:${root}`);
+      //root.innerHTML = '<h2>저기</h2>'
+    })
+  </script>
+  <div id="root">여기</div>
+  <script type="text/javascript">
+    const froot = document.querySelector("#root")
+    froot.innerHTML = '<b>데이터</b>'
+  </script>
+</body>
+</html>
