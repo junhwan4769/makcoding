@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 해커뉴스가 제공하는 데이터 포맷이 json인데 
+    // 대괄호(배열)안에 좌중괄호 우중괄호(객체)가 있었다. 
+    // 객체: Object
+    // 데이터를 property라는 인덱싱을 통해 구조적으로 묶어 놓은 것 
+    let person = {
+      name: "이성계", 
+      age: 35,
+      email: "lee35@gmail.com"
+    }
+    document.write("<h2>"+person.name+"</h2>")
+    document.write(`<p> 나이 : ${person.age}</p>`)
+    document.write(`<div> Email : ${person["email"]}</div>`)
+  </script>
+</body>
+</html>
