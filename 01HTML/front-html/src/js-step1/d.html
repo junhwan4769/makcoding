@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 속성 변경 - DOM API</title>
+  <script>
+    function imgPrint(){
+      console.log('imgPrint함수 호출 성공');
+      const img = document.createElement("img")
+      img.setAttribute("src","../images/man4.png")
+      img.setAttribute("width", 200)
+      img.setAttribute("height", 250)
+      document.body.appendChild(img)
+    }
+  </script>
+</head>
+<body>
+  <button onclick="imgPrint()">그림보기</button>
+</body>
+</html>
