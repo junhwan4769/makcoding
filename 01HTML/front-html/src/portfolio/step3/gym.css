@@ -1,0 +1,184 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredericka+the+Great&family=Orbitron&display=swap");
+
+/* CSS 주석 - 주석은 실행하지 않는다 
+CSS JS HTML파일들은 서버로부터 클라이언트측에 다운로드 일어난다.
+다운로드 말 속에서 지연(waiting)이 발생할 수 있다. (동기, 비동기)
+위 세가지를 처리하는 주체는 브라우저이다. - 인터프리터의 역할을 한다. 
+로컬 기준의 처리 결과이다. (정적페이지)
+*/
+
+/* 유니버설 셀렉터(universal selector) */
+* {
+  border: 0px solid black;
+  /* 1. padding과 border를 포함하는 크기를 계산해 준다. */
+  /* 모든 요소의 박스 크기를 테두리까지 포함하여 계산해준다 */
+  box-sizing: border-box; /*안쪽 여백과 바깥 여백을 포함한 숫자 */
+}
+
+
+/* */
+body { /*태그 선택자, 요소 선택자 */
+  /* 숫자가 하나면 위 아래 오른쪽 왼쪽 모두 여백 */
+  /* 숫자가 둘이면 첫번째는 위 아래 두번째는 오른쪽 왼쪽 여백 */
+  /* 숫자가 넷이면 시계방향으로 여백을 말한다 */
+  margin: 0; /*위, 오른쪽, 아래, 왼쪽*/
+}
+
+/* 하이퍼링크(anchor) 태그 */
+a {
+  /* 3. 링크의 밑줄 제거하기 */
+  text-decoration: none;
+  /* 4. 링크가 걸린 글자색 */
+  color: white;
+}
+
+/* 5. 상단의 네비게이션 바 */
+#navbar { /* <nav id=navbar> */ /* id 선택자 */
+  position: fixed; /*상단 메뉴바 고정하기 */
+  background-color: gray;
+  display: flex; /* 메뉴 아이템들을 컬럼 레벨로 정렬 */
+  justify-content: space-between; /* 메뉴바 들어오는 내용들의 공간 할당 */
+  align-items: center;
+  width: 100%; /* 버거아이콘을 일단 none 했을때 메뉴아이템이 오른쪽 끝까지 다 차지*/
+  color: white;
+}
+
+.navbar_logo { /* 클래스 선택자 */
+  font-size: 28px; /* 글자 크기 */
+  font-weight: 60px; /* 글자 두께 */
+}
+
+/* Unordered List */
+ul {
+  list-style: none; 
+  padding-left: 0; /* 안쪽 여백 */
+}
+
+/* 메뉴 아이템을 가로로 정렬하기 */
+/* li태그 여러개를 가로로 출력되게 해준다 */
+/* 상위 태그에 준 속성이 자손태그에 전이된다 */
+.navbar_menu { /* ul태그 선택자 이름이다 */
+  display: flex; /* 로우(가로)방향으로 출력되는게 컬럼(세로)방향으로 출력된다*/
+}
+
+.navbar_menu_item {
+  padding: 8px 12px; /* 클릭 영역 확보 */
+  margin: 0px 4px; /* 항목 간 간격 띄운다 */
+  /* list-style: none; */
+  cursor: pointer;
+  border-radius: 4px; /* 둥근 모서리 */
+}
+
+/* 활성화된 메뉴아이템에 테두리 선 */
+.navbar_menu_item.active{
+  border: 1px solid white;
+}
+
+.navbar_menu_item:hover { /* :hover 가상선택자 */
+  background-color: greenyellow;
+  color: black;
+}
+
+/*모바일 디바이스일때 사용할 버튼이다*/
+/* 768px 보다 클때는 안보이다가 768px보다 작으면 그때 보인다*/
+/* 버거 아이콘 처리 */
+.burger_toggle-btn{
+  position: absolute;/* 부모(#navbar) 기준 절대 위치 */
+  right: 32px;/* 오른쪽 여백 32px(우측 고정) */
+  font-size: 24px;/* 아이콘 크기 */
+  color: white;/* 아이콘 색상 */
+  display: none;/* 기본은 숨김(모바일에서만 보이게 할 예정) */
+}
+
+/*====== 공통 섹션 =======*/
+section {
+  text-align: center;
+  margin: auto; /* 가운데 배치(고정폭) */
+}
+
+/*====== 각 섹션별 데모 배경 / 크기 div태그 =======*/
+.hcontent { /* HOME */
+  background-color: rgb(66, 51, 51);
+  width: 100%;
+  height: 700px;
+}
+
+.acontent { /* ABOUT */
+  background-color: rgb(90, 80, 80);
+  width: 100%;
+  height: 700px;
+}
+
+.ncontent { /* NOTICE */
+  background-color: rgb(63, 24, 24);
+  width: 100%;
+  height: 700px;
+}
+
+.pcontent { /* PROGRAM */
+  background-color: rgb(110, 7, 7);
+  width: 100%;
+  height: 700px;
+}
+
+.ccontent { /* CONTACT ME */
+  background-color: rgb(144, 152, 223);
+  width: 100%;
+  height: 700px;
+}
+
+/*
+Arrow Up
+처음에는 안보이다가 스크롤링이 되면 보이게 한다
+그래서 처음에는 display: none 한 다음에 
+스크롤링이 일어나면 visible 속성값으로 보이게 처리하기 
+*/
+
+.arrow-up {
+  position: fixed;/* 화면 하단 우측에 고정(스크롤 영향 X) */
+  bottom: 50px;/* 아래에서 50px 띄움 */
+  right: 50px;/* 오른쪽에서 50px 띄움 */
+  width: 70px;/* 버튼 너비 */
+  height: 70px;/* 버튼 높이 */
+  font-size: 50px;/* 안의 화살표 아이콘 크기 */
+  color: white;/* 아이콘 색상 흰색 */
+  background-color: rgb(2, 179, 2);/* 버튼 배경(밝은 초록) */
+  border-radius: 50%;/* 동그란 버튼(반지름 큼) */
+  opacity: 0;/* 기본은 투명(안 보이는 상태) */
+  transition: all 300ms ease-in;/* 나타날 때/사라질 때 부드럽게 */
+  /* pointer-events: none; ← 안 보일 때 클릭 방지하려면 이 줄을 추가하는 것도 좋음 */
+}
+
+.arrow-up.visible{
+  opacity: 1; /* 보이는 상태(불투명) */
+}
+
+/* 반응형 처리 */
+@media screen and (max-width: 768px) {
+  .burger_toggle-btn {
+    display: block;/* 모바일 화면에서 햄버거 아이콘 보이기 */
+  }
+
+  #navbar {
+    /* 메뉴바 내용이 아래로 출력됨 */
+    flex-direction: column;/* 가로 → 세로 스택 배치 */
+    align-items: flex-start;/* 왼쪽 정렬(모바일 내비 형태) */
+  }
+
+  .div_menu {
+    width: 100%;/* 메뉴 래퍼가 전체 폭 차지(가운데 정렬 보조) */
+  }
+  .navbar_menu {
+    flex-direction: column;/* 메뉴 항목 세로 배치 */
+    text-align: center;/* 텍스트 가운데 정렬 */
+    /* div_menu width 100% 주어야 가운데옴 */
+    display: none;/* 기본 숨김(버거 클릭 시에만 표시) */
+  }
+  
+  /* 버거아이콘 누르면 보여짐 - 미디어 쿼리 안에서만 적용 */
+  .navbar_menu.open {
+    display: block;/* 토글 시 메뉴 펼치기 */
+  }
+}
