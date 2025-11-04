@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>짐-2단계</title>
+  <!-- 외부에서 -->
+  <script src="https://kit.fontawesome.com/e60962187f.js" crossorigin="anonymous"></script>
+  <!-- link 입력하고 link css찾아서 누르고 href에서 ./ 입력하고 gym.css 선택-->
+  <link rel="stylesheet" href="./gym.css">
+  <!--외부에서 gym.js import하는 문장-->
+  <script src="./gym.js" defer></script>
+</head>
+<body>
+  <!-- Navbar .찍고 navbar_logo 입력--> 
+  <div id="navbar">
+    <div class="navbar_logo">
+      <i class="fab fa-diaspora"></i>
+      <a href="#">홈짐</a>
+    </div>
+    <!--
+      ul.navbar_menu>li.navbar_menu_item*5
+    -->
+    <div class="div_menu">
+      <ul class="navbar_menu"> <!-- unordered list -->
+        <li class="navbar_menu_item active" data-link="#home">Home</li> <!-- list item -->
+        <li class="navbar_menu_item" data-link="#about">홈짐소개</li>
+        <li class="navbar_menu_item" data-link="#notice">공지사항</li>
+        <li class="navbar_menu_item" data-link="#program">프로그램 소개</li>
+        <li class="navbar_menu_item" data-link="#contact">Contact</li>
+      </ul> 
+    </div>
+    <!-- toggle button: 버거아이콘-->
+    <div class="burger_toggle-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+  <!--
+  ===================================================
+  Navbar
+  ===================================================
+  -->
+
+  <!-- Home -->
+  <section id="home">
+    <div class="hcontent">이미지</div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="acontent">홈짐소개</div>
+  </section>
+
+  <!-- Notice -->
+  <section id="notice">
+    <div class="ncontent">공지사항</div>
+  </section>
+
+  <!-- Program -->
+  <section id="program">
+    <div class="pcontent">프로그램 소개</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="ccontent">ContactMe
+      <h1 class="contact_title">Let's talk</h1>
+      <h2 class="contact_email">junhwan1310@gmail.com</h2>
+      <div class="contact_links">
+        <a href="#" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fa fa-linkedin-square"></i>
+        </a>
+      </div>
+      <p class="contact_rights">
+        2025 맥코딩 김유신 - All rights reserved
+      </p>    
+    </div>
+  </section>
+
+  <!-- Arrow up 
+  footer 에서 화살표 버튼을 누르면 home으로 한번에 이동하기
+  -->
+  <button class="arrow-up">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</body>
+</html>
