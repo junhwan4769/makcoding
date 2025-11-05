@@ -18,8 +18,10 @@
     //선언만 했을때는 에러가 발생하지 않고 사용할 때 중단되거나 TypeError가 발생함 
     //console.log(`global variable:${groot}`); //null 일까? 아니면 브라우저가 div를 찾아낼까?
     /*************************************************************
-     * @param1 :type -> load(예:click)
+     * @param1 :type -> load(예:click, focus, scroll, ..)
      * @param2 :콜백함수 -> 파라미터를 가질 수 있다. -> 이벤트가 감지되면 호출된다.
+     * 자바스크립트가 제공하는 최상위 객체가 window이다. 
+     * window 객체가 제공하는 addEventListener(,) - 명세서 
      * **********************************************************/
 
     window.addEventListener('load', function(event){
@@ -29,7 +31,7 @@
       //root.innerHTML = '<h2>저기</h2>'
     })
   </script>
-  <div id="root">여기</div>
+  <div id="root">여기(데이터셋-json포맷(예:해커뉴스,클라우드API))</div>
   <script type="text/javascript">
     const froot = document.querySelector("#root")
     froot.innerHTML = '<b>데이터</b>'

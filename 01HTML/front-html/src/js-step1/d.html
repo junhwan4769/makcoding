@@ -7,6 +7,8 @@
   <script>
     function imgPrint(){
       console.log('imgPrint함수 호출 성공');
+      // DOM API를 통해서 태그를 생성할 수 있다. 
+      // 그런데 직관적이지 못하다 
       const img = document.createElement("img")
       img.setAttribute("src","../images/man4.png")
       img.setAttribute("width", 200)

@@ -4,18 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    /* css를 작성하는 영역 */
+  </style>
 </head>
 <body>
-  <!-- html 영역이다. -->
+  <!-- 
+  html 영역이다. 
+  html과 javascript 섞어쓰기 
+  html과 css 섞어쓰기 
+  -->
   <div id="msg">안녕</div>
   <div id="name">강감찬</div>
   <div>점심메뉴</div>
   <script type="text/javascript">
-    let msg = document.querySelector("#msg")
+    // 여기는 자바스크립트 영역이다 - 태그는 작성할 수 없다. 
+    let msg = document.querySelector("#msg") //id 선택자
     console.log(msg);
-    let name = document.querySelector(".name")
+    let name = document.querySelector(".name") //class 선택자
     console.log(name);
-    let div = document.querySelector("div")
+    let div = document.querySelector("div") //태그 선택자
     console.log(div);
   </script>
 </body>
