@@ -71,11 +71,26 @@ function router(){
 // 그런데 목록을 처리하는 코드를 getNewsList()에 묶어 두었다.
 // 그래서 최초 한 번은 호출을 해주어야 하겠다. 
 window.addEventListener("hashchange", router); // end of addEventListener
+
+/* 
+아래 함수 호출이 없으면 화면에 아무것도 출력되지 않는다.
+왜냐하면 목록을 가져오는 코드를 getNewsList 함수에 묶어 두었기 때문임
+이 함수를 호출하는 라우터 함수를 구현해 보았다.
+라우터를 동작하는 방식은 화면이 전환되어야 할때 라우터가 판단해서 
+해당하는 화면으로 전환시킨다. 
+그런데 지금 화면이 전환되어야 할 때라는 건 뭘까?
+기존 step5의 hashchange가 바뀌는걸 화면의 전환을 위한 트리거로서 사용하고 있었다. 
+그런데 지금 hashchange 에는 뭐가 걸려있냐면 getNewsDetail이 걸려있다.  
+즉 해시가 바뀌면 무조건 글 상세내용을 보는거야. 이런식으로 되어있다. 
+그러나 화면이 여러개 있으면 해시가 바뀌면 글 내용을 보여줄 수도 있고 
+글 목록을 보여줄 수도 있고 이렇게 되면 해시의 종류가 많아질 것이다. 
+페이지의 종류가 많아질 테니까... 
+바로 이 해시를 router한테 주면 된다. 
+바로 이 hashchange가 일어났을때 동작하는 함수를 기존의 getNewsDetail가 아니라 
+라우터한테 주면 라우터가 해시가 바뀔 때마다 동작하게 되고 그럼 그 라우터 안에서 
+어떤 해시냐에 따라서 글목록을 보여줄 때도 있고 글 내용을 보여줄 때도 있게 된다.
+다음엔 이 방식으로 페이징 처리를 할 것이다. 
+*/
+
 router()
-// 나는 아직  getNewsList()를 호출하지 않았다. 
-// insert here
-// getNewsList()
-// getNewsDetail(45830770)
-// container.appendChild(ul);
-//원천은 하나인데 두개의 사용처가 생김
-// container.appendChild(content);
+
