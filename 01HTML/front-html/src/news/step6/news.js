@@ -56,25 +56,26 @@ function getNewsList() {
   container.innerHTML = newsList.join("")
 }//// end of getNewsList
 
-window.addEventListener("hashchange", function () {
-  // 콜백함수 영역 - 이벤트 감지되면 자동 호출됨 - 익명함수
-  const id = location.hash.substring(1);
-  //console.log(id); //123456789
+//라우터에서 화면 전환하는 함수를 구현한다. - router
+function router(){
+  // -> http://localhost:5500/src/news/step6/news.html
+  const hash = location.hash //#12345678
+  if(hash == ""){//해시값이 없으면 목록 보기
+    getNewsList()
+  }else{//해시값이 있으면 상세 보기 
+    getNewsDetail()
+  }
+} //end of router 
 
-  //insert here
-  const newsDetail = getData(CONTENT_URL.replace("@id", id));
-  //console.log(newsDetail);
-
-  const title = this.document.createElement("h1");
-  console.log(newsDetail.title); // 사용자가 클릭한 제목에 대응되는 제목
-  title.innerHTML = newsDetail.title;
-  //<div> <h1> 사용자가 클릭한 제목 </h1> </div>
-  content.appendChild(title)
-}); //end of addEventlistener
-
+// 아래 이벤트는 목록에서 사용자가 제목을 클릭했을때 감지가 된다. 
+// 그런데 목록을 처리하는 코드를 getNewsList()에 묶어 두었다.
+// 그래서 최초 한 번은 호출을 해주어야 하겠다. 
+window.addEventListener("hashchange", router); // end of addEventListener
+router()
 // 나는 아직  getNewsList()를 호출하지 않았다. 
 // insert here
-getNewsList()
+// getNewsList()
+// getNewsDetail(45830770)
 // container.appendChild(ul);
 //원천은 하나인데 두개의 사용처가 생김
-container.appendChild(content);
+// container.appendChild(content);
