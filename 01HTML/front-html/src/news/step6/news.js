@@ -70,6 +70,10 @@ function router(){
 // 아래 이벤트는 목록에서 사용자가 제목을 클릭했을때 감지가 된다. 
 // 그런데 목록을 처리하는 코드를 getNewsList()에 묶어 두었다.
 // 그래서 최초 한 번은 호출을 해주어야 하겠다. 
+// 자바스크립트에서는 함수의 파라미터로 함수를 호출할 수 있다. 
+// 파라미터 자리에는 () 생략할 수 있다. 
+// 두번째 파라미터 자리에 router 함수는 hashchange가 발동하면 
+// 브라우저가 대신 호출해줌. - 개발자는 구현했더라도 호출이 불가함 
 window.addEventListener("hashchange", router); // end of addEventListener
 
 /* 
