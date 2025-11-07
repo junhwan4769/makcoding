@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항</title>
+  <script>
+    function login(){
+      console.log("로그인 버튼을 누른거야");
+      const 사용자가입력한아이디 = document.querySelector("#mem_id")
+      console.log(사용자가입력한아이디.value);
+    }
+  </script>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td>아이디</td>
+      <td><input type="text" id="mem_id"></td>
+      <td><button type="button" onclick="login()">로그인</button></td>
+    </tr>
+  </table>
+</body>
+</html>

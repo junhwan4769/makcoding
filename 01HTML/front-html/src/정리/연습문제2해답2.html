@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .selected {
+        background-color: yellow;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>불고기버거</li>
+      <li>치즈버거</li>
+      <li>치킨버거</li>
+    </ul>
+    <script>
+    //자바스크립트 코드 영역
+    //버블링 활용 : 자식에서 발생한 이벤트가 부모로 올라오므로 부모 한 곳에서 처리
+    //유지 보수: li가 동적으로 추가/삭제 되어도 이벤트 바인딩을 새로 할 필요 없음
+    const menu = document.querySelector("#menu")
+    console.log(menu);
+    // 콜백함수의 event는 브라우저가 주입해준다 - null이 아니다
+    menu.addEventListener('click', function(event){
+      console.log('click');
+      console.log(event.target) //HTMLElement
+      //아래는 li의 텍스트노드를 출력함
+      console.log(event.target.textContent); 
+      const li = event.target.closest('li')
+      //기존에 선택된 아이템은 제거하기
+      const choice = menu.querySelector(".selected")
+      //만약에 선택된 클래스 선택자가 참이면 
+      if(choice) choice.classList.remove("selected")
+      li.classList.add('selected')
+    })
+    </script>
+  </body>
+</html>

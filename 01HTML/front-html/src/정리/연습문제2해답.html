@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .selected {
+        background-color: yellow;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>불고기버거</li>
+      <li>치즈버거</li>
+      <li>치킨버거</li>
+    </ul>
+    <script>
+    //자바스크립트 코드 영역
+    //버블링 활용 : 자식에서 발생한 이벤트가 부모로 올라오므로 부모 한 곳에서 처리
+    //유지 보수: li가 동적으로 추가/삭제 되어도 이벤트 바인딩을 새로 할 필요 없음
+    //menu안의 모든 li를 선택함
+    const items = document.querySelectorAll("#menu li")
+    console.log(items);
+    items.forEach( (element, index) => {
+      console.log(`element: ${element}, index: ${index}`);
+      element.addEventListener('click', function(){
+        //element -> li태그를 의미함
+        //사용자가 클릭한 li태그의 글자색을 빨강으로 변경 
+        element.style.color = 'red'
+        element.style.background = 'black'
+        console.log(element.textContent);
+        //사용자가 클릭한 아이템의 텍스트 노드 가져오기 
+        const myMenu = element.textContent
+        //클릭한 아이템 이름 출력하기 
+        window.alert(`당신은 ${myMenu}를 선택하셨습니다`)
+        // console.log(`당신은 ${myMenu}를 선택하셨습니다`)
+      })
+    })
+    </script>
+  </body>
+</html>

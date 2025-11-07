@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">클릭하세요</button>
+    <script>
+      const button = document.querySelector("btn");
+      button.addEventListener("mouseover", function () {
+        console.log("버튼이 클릭되었습니다.");
+      });
+    </script>
+  </body>
+</html>
+<!-- 
+버튼을 클릭하면 Console에 '버튼이 클릭되었습니다.'라는 문구가 출력 되도록 아래와 같이 코드를 작성하였으나 
+올바르게 동작하지 않았다.
+[원인(20점)]에 올바르게 동작하지 않은 원인 2가지를 기술하고,
+[조치내용(30점)]에 올바르게 동작할 수 있게 수정 된 코드 2가지를 기술하시오. (50점)  
