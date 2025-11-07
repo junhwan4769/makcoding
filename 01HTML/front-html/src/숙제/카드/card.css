@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+  /* 1 패딩과 보더 포함한 요소크기 계산 - 레이아웃 예측 쉬움*/
+  border: 빨간줄 싫어;
+  /* 2 레이아웃 디버깅용 */
+}
+
+/* 컨텐츠 가운데 배치  
+왼쪽/위에서 각각 50%지점에 기준점을 놓고 자기 크기의 절반만큼 끌어와 가운데 배치 
+주의 : absolute는 가장 가까운 position이 지정된 조상을 기준으로 합니다.  
+부모에 position: relative가 없으면 viewport 기준이 돼요. 원하는 기준이 있다면  
+**부모에 position: relative**를 주는 게 안전합니다. 
+*/
+.center {
+  position: absolute; /* 중앙 배치 */
+  /*★*/
+  /* 3 */
+  left: 50%; /* 4 x축 좌표 */
+  
+  top: 50%; /* 5 y축 좌표 */
+  
+  transform: translate(-50%, -50%); /*왼쪽 오른쪽 (-붙으면 반대로 이동)*/
+  /* 6 */
+}
+
+/* 카드 전체 배치 7~14  
+카드 박스의 기본 여백/배경/모서리/글자색/가로폭/좌측정렬/바깥 여백을 설정. 
+*/
+.card {
+  padding: 20px; /* 안쪽 여백 */
+  /* 7 */
+  color: #080808; /* 글자 색 */
+  /* 8 */
+  width: 280px; /* card 전체 폭 */
+  /* 9 */
+  font-size: 24px;
+  /* 10 */
+  text-align: left; /* 제목 */
+  /* 11 */
+  border-radius: 8px; /* 모서리 */
+  /* 12 */
+  background: #eeeeee; /* 배경 색 */
+  /* 13 */
+  margin-bottom: 30px; 
+  /*★*/
+  /* 14 */
+}
+
+.card>img {
+  width: 100%; /* 15 이미지 크기 박스벗어나지 않게함 */
+  /*★*/
+  
+  border-radius: 6px; /* 이미지 모서리 */
+  /* 16 */
+}
+
+/* h1제목 17~21  
+상하 여백으로 구간 분리리 
+*/
+.card h1 { /* 지금 웹 디자인을 배우는 건 너무 늦었나 */
+  font-size: 20px;
+  /* 17 */
+  line-height: 28px;
+  /* 18 */
+  font-weight: bold;
+  /* 19 */
+  margin-top: 10px;
+  /*★*/
+  /* 20 */
+  margin-bottom: 10px;
+  /* 21 */
+}
+
+/* p내용단락 22~24  
+본문 크기/행간 + 하단 여백으로 다음 블록과 간격확보보 
+*/
+.card p { /* 일반적으로 웹 디자인 혹은 앱 디자인을 하고 싶은 분들의 ~~~ */
+  font-size: 14px;
+  /* 22 */
+  line-height: 20px;
+  /* 23 */
+  margin-bottom: 20px;
+  /* 24 */
+}
+
+/* 댓글수|좋아요 25  
+플렉스 컨테이너: 왼쪽엔 사용자 정보, 오른쪽엔 댓글/좋아요 묶음을 배치 
+wrap으로 좁은 화면에서 줄바꿈 가능, space-between으로 양끝 정렬. 
+*/
+.card-info {
+  display: flex;
+  /* 25 */
+  flex-direction: row;
+  /* 26 */
+  flex-wrap: wrap;
+  /* 27 */
+  justify-content: space-between; /* space-around도 있다. */
+  /*★*/
+  /* 28 */
+}
+
+/* 
+사용자 정보 
+아바타 이미지와 사용자명을 가로 한 줄 + 세로 가운데 정렬. 
+*/
+.user-wrap {
+  display: flex; /* 29 이미지와 글씨 같은 줄에 배치*/
+  align-items: center; /* 30 이순신 글자 가운데옴 */
+  /*★*/ 
+}
+
+/* 이미지와 글씨 한공간에 담기  
+아바타: 32px 원형, 오른쪽에 8px 간격. 
+*/
+.user-wrap img {
+  position: relative; 
+  /*★*/
+  /* 31 */
+  float: left;
+  /* 32 */
+  width: 32px;
+  /* 33 */
+  border-radius: 50%;
+  /* 34 */
+  margin-right: 8px;
+  /* 35 */
+}
+
+.user-name {
+  font-size: 18px; /* 글자 이순신 크기 */
+  /* 36 */
+}
+
+/* 댓글수와 좋아요 전체 마진 
+상단 여백으로 사용자 정보와 분리 
+*/
+.icon { /* 하트와 댓글 아이콘 */
+  width: 16px;
+  height: 16px; 
+  display: block;
+  margin-left: 4px;
+  /* 37 */
+}
+
+/* 댓글수와 좋아요 글씨이미지 같은 로우에 출력함 
+댓글수와 좋아요 묶음을 가로 한 줄에 배치 
+*/
+
+.chat,
+.favorite {
+  display: inline-block;
+  /*★*/
+  /* 38 */
+}
+
+.chat span,
+.favorite span {
+  float: left;
+  display: block;
+  font-size: 16px;
+  line-height: 16px;
+  /*★*/
+  /* 38 */
+}
+
+.chat {
+  margin-right: 10px;
+  /* 39 */
+}
+
+.icon {
+  width: 16px;
+  /* 40 */
+  height: 16px;
+  /* 41 */
+  margin-left: 4px;
+  /* 42 */
+  display: block;
+  /*★*/
+  /* 43 */
+}
+
+/* 글씨를 왼쪽에 배치하기  
+댓글/좋아요 숫자/문구를 왼쪽으로 띄워 한 줄 배치하려고 float을 사용. 
+*/
+.chat span,
+.favorite span {
+  display: block;
+  /* 44 */
+  float: left;
+  /*★*/
+  /* 45 */
+  font-size: 12px;
+  /* 46 */
+  line-height: 16px;
+  /* 47 */
+  margin-right: 2px;
+  /* 48 */
+}

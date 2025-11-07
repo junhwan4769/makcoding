@@ -1,0 +1,76 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredericka+the+Great&family=Orbitron&display=swap");
+
+*{
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  width: 100%; /* 화면 가로 전체 폭 */
+  display: flex; /* 내부 요소를 가로로 배치 */
+  border-bottom: 1px solid #aaaaaa;
+  color: #ffffff; /* 자손텍스트 기본색상 흰색*/
+  justify-content: space-between; /* 좌우 끝으로 요소 배치*/
+  align-items: center; /* 세로 가운데 정렬 */
+  z-index: 2;
+}
+
+.sns{
+  z-index: 2;
+}
+
+header .sns li a {
+  font-size: 20px;
+  color: white;
+}
+
+header .sns li {
+  margin: 0 10px;
+}
+
+#forest {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: 1;
+  object-fit: cover;
+}
+
+#forest video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.txt {
+  position: absolute;
+  left: 6vw;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+
+.txt p {
+  font-size: 52px;
+  color: white;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  letter-spacing: 4px;
+  color: white;
+  z-index: 2;
+}
